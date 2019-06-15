@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: "canvasses#new"
+
   resources :votes
   resources :candidates
   resources :qualities

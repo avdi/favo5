@@ -1,0 +1,2 @@
+class Quality < ApplicationRecord
+end

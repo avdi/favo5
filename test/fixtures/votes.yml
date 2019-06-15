@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  candidate: one
+  primary_quality: one
+  secondary_quality: one
+  tertiary_quality: one
+  comment: MyText
+
+two:
+  candidate: two
+  primary_quality: two
+  secondary_quality: two
+  tertiary_quality: two
+  comment: MyText

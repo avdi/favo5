@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Candidate:</strong>
+  <%= @vote.candidate_id %>
+</p>
+
+<p>
+  <strong>Primary quality:</strong>
+  <%= @vote.primary_quality_id %>
+</p>
+
+<p>
+  <strong>Secondary quality:</strong>
+  <%= @vote.secondary_quality_id %>
+</p>
+
+<p>
+  <strong>Tertiary quality:</strong>
+  <%= @vote.tertiary_quality_id %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @vote.comment %>
+</p>
+
+<%= link_to 'Edit', edit_vote_path(@vote) %> |
+<%= link_to 'Back', votes_path %>

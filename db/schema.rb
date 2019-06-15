@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_15_065553) do
+ActiveRecord::Schema.define(version: 2019_06_15_071259) do
+
+  create_table "candidates", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "canvasses", force: :cascade do |t|
     t.string "question"

@@ -1,4 +1,4 @@
-<%= form_with(model: vote, local: true) do |form| %>
+<%= form_with(model: [vote.canvass, vote], local: true) do |form| %>
   <% if vote.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(vote.errors.count, "error") %> prohibited this vote from being saved:</h2>
@@ -13,12 +13,18 @@
 
   <div class="field">
     I prefer
-    <%= form.text_field :candidate_id %>
+    <%= form.text_field :candidate_name, placeholder: "Butter pecan" %>
+    because I care about
+    <%= form.text_field :priority_1, placeholder: "butteriness" %>
+    and
+    <%= form.text_field :priority_2, placeholder: "chunkiness" %>
+    and
+    <%= form.text_field :priority_3, placeholder: "nuttiness" %>
   </div>
 
   <div class="field">
-    <%= form.label :comment %>
-    <%= form.text_area :comment %>
+    <%= form.label :comment, class: "inline" %>
+    <%= form.text_field :comment, placeholder: "it just tastes good" %>
   </div>
 
   <div class="actions">

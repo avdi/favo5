@@ -11,11 +11,11 @@
   </thead>
 
   <tbody>
-    <% @qualities.each do |quality| %>
+    <% @priorities.each do |quality| %>
       <tr>
         <td><%= quality.tag %></td>
         <td><%= link_to 'Show', quality %></td>
-        <td><%= link_to 'Edit', edit_quality_path(quality) %></td>
+        <td><%= link_to 'Edit', edit_priority_path(quality) %></td>
         <td><%= link_to 'Destroy', quality, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Quality', new_quality_path %>
+<%= link_to 'New Quality', new_priority_path %>

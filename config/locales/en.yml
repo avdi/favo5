@@ -34,4 +34,8 @@ en:
   helpers:
     submit:
       canvass:
-        create: "Begin Poll"
+        create: "Launch Poll"
+        update: "Update"
+    label:
+      vote:
+        comment: "And because"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_15_154117) do
+ActiveRecord::Schema.define(version: 2019_06_25_031001) do
 
   create_table "candidates", force: :cascade do |t|
     t.string "name"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(version: 2019_06_15_154117) do
     t.string "question"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "priorities", force: :cascade do |t|
+    t.string "tag"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "priorities_votes", id: false, force: :cascade do |t|
+    t.integer "vote_id", null: false
+    t.integer "priority_id", null: false
   end
 
   create_table "qualities", force: :cascade do |t|
@@ -37,11 +48,14 @@ ActiveRecord::Schema.define(version: 2019_06_15_154117) do
 
   create_table "votes", force: :cascade do |t|
     t.integer "candidate_id", null: false
-    t.text "comment"
+    t.string "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "canvass_id"
     t.index ["candidate_id"], name: "index_votes_on_candidate_id"
+    t.index ["canvass_id"], name: "index_votes_on_canvass_id"
   end
 
   add_foreign_key "votes", "candidates"
+  add_foreign_key "votes", "canvasses"
 end

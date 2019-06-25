@@ -2,47 +2,47 @@ require 'test_helper'
 
 class QualitiesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @quality = qualities(:one)
+    @priority = qualities(:one)
   end
 
   test "should get index" do
-    get qualities_url
+    get priorities_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_quality_url
+    get new_priority_url
     assert_response :success
   end
 
   test "should create quality" do
     assert_difference('Quality.count') do
-      post qualities_url, params: { quality: { tag: @quality.tag } }
+      post priorities_url, params: {priority: {tag: @priority.tag } }
     end
 
-    assert_redirected_to quality_url(Quality.last)
+    assert_redirected_to priority_url(Priority.last)
   end
 
   test "should show quality" do
-    get quality_url(@quality)
+    get priority_url(@priority)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_quality_url(@quality)
+    get edit_priority_url(@priority)
     assert_response :success
   end
 
   test "should update quality" do
-    patch quality_url(@quality), params: { quality: { tag: @quality.tag } }
-    assert_redirected_to quality_url(@quality)
+    patch priority_url(@priority), params: {priority: {tag: @priority.tag } }
+    assert_redirected_to priority_url(@priority)
   end
 
   test "should destroy quality" do
     assert_difference('Quality.count', -1) do
-      delete quality_url(@quality)
+      delete priority_url(@priority)
     end
 
-    assert_redirected_to qualities_url
+    assert_redirected_to priorities_url
   end
 end

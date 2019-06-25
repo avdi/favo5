@@ -5,5 +5,7 @@
   <%= @canvass.question %>
 </p>
 
+<%= render 'votes/form', vote: @canvass.votes.build %>
+
 <%= link_to 'Edit', edit_canvass_path(@canvass) %> |
 <%= link_to 'Back', canvasses_path %>

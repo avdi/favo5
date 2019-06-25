@@ -1,10 +1,10 @@
-class QualitiesController < ApplicationController
+class PrioritiesController < ApplicationController
   before_action :set_quality, only: [:show, :edit, :update, :destroy]
 
   # GET /qualities
   # GET /qualities.json
   def index
-    @qualities = Quality.all
+    @priorities = Priority.all
   end
 
   # GET /qualities/1
@@ -14,7 +14,7 @@ class QualitiesController < ApplicationController
 
   # GET /qualities/new
   def new
-    @quality = Quality.new
+    @priority = Priority.new
   end
 
   # GET /qualities/1/edit
@@ -24,15 +24,15 @@ class QualitiesController < ApplicationController
   # POST /qualities
   # POST /qualities.json
   def create
-    @quality = Quality.new(quality_params)
+    @priority = Priority.new(quality_params)
 
     respond_to do |format|
-      if @quality.save
-        format.html { redirect_to @quality, notice: 'Quality was successfully created.' }
-        format.json { render :show, status: :created, location: @quality }
+      if @priority.save
+        format.html { redirect_to @priority, notice: 'Quality was successfully created.' }
+        format.json { render :show, status: :created, location: @priority }
       else
         format.html { render :new }
-        format.json { render json: @quality.errors, status: :unprocessable_entity }
+        format.json { render json: @priority.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -41,12 +41,12 @@ class QualitiesController < ApplicationController
   # PATCH/PUT /qualities/1.json
   def update
     respond_to do |format|
-      if @quality.update(quality_params)
-        format.html { redirect_to @quality, notice: 'Quality was successfully updated.' }
-        format.json { render :show, status: :ok, location: @quality }
+      if @priority.update(quality_params)
+        format.html { redirect_to @priority, notice: 'Quality was successfully updated.' }
+        format.json { render :show, status: :ok, location: @priority }
       else
         format.html { render :edit }
-        format.json { render json: @quality.errors, status: :unprocessable_entity }
+        format.json { render json: @priority.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -54,9 +54,9 @@ class QualitiesController < ApplicationController
   # DELETE /qualities/1
   # DELETE /qualities/1.json
   def destroy
-    @quality.destroy
+    @priority.destroy
     respond_to do |format|
-      format.html { redirect_to qualities_url, notice: 'Quality was successfully destroyed.' }
+      format.html { redirect_to priorities_url, notice: 'Quality was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -64,11 +64,11 @@ class QualitiesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_quality
-      @quality = Quality.find(params[:id])
+      @priority = Priority.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def quality_params
-      params.require(:quality).permit(:tag)
+      params.require(:priority).permit(:tag)
     end
 end

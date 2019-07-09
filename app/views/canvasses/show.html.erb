@@ -7,5 +7,16 @@
 
 <%= render 'votes/form', vote: @canvass.votes.build %>
 
+<h3>Recent votes:</h3>
+<ul>
+  <% @canvass.votes.order(created_at: :desc).each do |vote| %>
+    <li>
+      <%= link_to(vote.candidate.name, [vote.canvass, vote]) %>
+      because I care about <%= vote.priority_1 %>, <%= vote.priority_2 %>, and <%= vote.priority_3 %>.
+      And also because <%= vote.comment %>.
+    </li>
+  <% end %>
+</ul>
+
 <%= link_to 'Edit', edit_canvass_path(@canvass) %> |
 <%= link_to 'Back', canvasses_path %>

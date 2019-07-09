@@ -14,8 +14,10 @@ ActiveRecord::Schema.define(version: 2019_06_25_031001) do
 
   create_table "candidates", force: :cascade do |t|
     t.string "name"
+    t.integer "canvass_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["canvass_id"], name: "index_candidates_on_canvass_id"
   end
 
   create_table "canvasses", force: :cascade do |t|

@@ -24,11 +24,13 @@ class VotesController < ApplicationController
   # POST /votes
   # POST /votes.json
   def create
-    @vote = Vote.new(vote_params)
+    @canvass = Canvass.find_by!(id: params.fetch(:canvass_id))
+    @candidate = @canvass.candidates.find_or_create_by!(name: params.dig("vote", "candidate_name"))
+    @vote = @canvass.votes.build(candidate: @candidate)
 
     respond_to do |format|
       if @vote.save
-        format.html { redirect_to @vote, notice: 'Vote was successfully created.' }
+        format.html { redirect_to [@canvass, @vote], notice: 'Vote was successfully created.' }
         format.json { render :show, status: :created, location: @vote }
       else
         format.html { render :new }

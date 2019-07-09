@@ -1,3 +1,12 @@
 <h1>I want to know...</h1>
 
 <%= render 'form', canvass: @canvass %>
+
+<% if(Rails.env.development?) %>
+<h3>Recent polls:</h3>
+  <ul>
+    <% Canvass.order(created_at: :desc).limit(5).each do |canvass| %>
+      <li><%= link_to(canvass.question, canvass) %></li>
+    <% end %>
+  </ul>
+<% end %>
